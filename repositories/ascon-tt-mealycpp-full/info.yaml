@@ -1,0 +1,61 @@
+# Tiny Tapeout project information
+project:
+  title:        "ASCON Integrated Crypto Processor"
+  author:       "Dr. Mohamed El-Hadedy"
+  discord:      ""
+  description:  "Reconfigurable ASCON cryptographic processor: AEAD-128, Hash256, XOF128, CXOF128 with chained modes, plus on-chip TRNG and Hash_DRBG. NIST SP 800-232 compliant. Three UART interface."
+  language:     "Verilog"
+  clock_hz:     50000000
+
+  tiles: "4x4"
+
+  top_module:  "tt_um_mealycpp_ascon_full"
+
+  source_files:
+    - "project.v"
+    - "ascon_permutation.v"
+    - "ascon_round.v"
+    - "hash_controller.v"
+    - "xof_controller.v"
+    - "cxof_controller.v"
+    - "aead_controller.v"
+    - "mode_controller.v"
+    - "byte_fifo.v"
+    - "byte_to_word_packer.v"
+    - "word_to_byte_unpacker.v"
+    - "uart_rx.v"
+    - "uart_tx.v"
+    - "baud_gen.v"
+    - "uart_bridge.v"
+    - "protocol_parser.v"
+    - "lane_router.v"
+
+pinout:
+  ui[0]: "uart0_rx_ctrl"
+  ui[1]: "uart1_rx_ad"
+  ui[2]: "uart2_rx_data"
+  ui[3]: "ext_entropy_in"
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
+
+  uo[0]: "uart0_tx"
+  uo[1]: "uart1_tx"
+  uo[2]: "uart2_tx"
+  uo[3]: "busy"
+  uo[4]: "done"
+  uo[5]: "frame_error_sticky"
+  uo[6]: "bg_lag_tied0"
+  uo[7]: "heartbeat"
+
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+yaml_version: 6

@@ -1,0 +1,8 @@
+sim_build/
+__pycache__/
+.vscode/
+results.xml
+*.vcd
+*.fst
+*.code-workspace
+syn.v

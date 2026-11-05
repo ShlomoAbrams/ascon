@@ -1,0 +1,25 @@
+[tasks]
+bmc
+cover
+
+[options]
+bmc: mode bmc
+bmc: depth 20
+cover: mode cover
+cover: depth 30
+
+[engines]
+bmc: smtbmc
+cover: smtbmc
+
+[script]
+read_verilog ascon_round.v
+read_verilog -formal ascon_p.v
+
+chparam -set rounds_per_clk 1 ascon_p
+
+prep -top ascon_p
+
+[files]
+../rtl/ascon_round.v
+../rtl/ascon_p.v

@@ -1,0 +1,42 @@
+[tasks]
+bmc
+cover
+
+[options]
+bmc: mode bmc
+cover: mode cover
+depth 12
+
+[engines]
+bmc: smtbmc
+cover: smtbmc
+
+[script]
+read_verilog formal_fifo.v
+read_verilog ascon_round.v
+read_verilog ascon_regslice.v
+read_verilog ascon_skidbuffer.v
+read_verilog ascon_isolator.v
+read_verilog ascon_p.v
+read_verilog ascon_pad.v
+read_verilog ascon_aead128_core.v
+read_verilog ascon_aead128.v
+read_verilog axis_ascon_aead128.v
+
+read_verilog -formal axis_ascon_aead128_selftest.v
+
+prep -top axis_ascon_aead128_selftest
+
+[files]
+../formal_rtl_gen/ascon_aead128_formal_testcases.v
+../formal_rtl/formal_fifo.v
+../formal_rtl/axis_ascon_aead128_selftest.v
+../rtl/ascon_round.v
+../rtl/ascon_regslice.v
+../rtl/ascon_skidbuffer.v
+../rtl/ascon_isolator.v
+../rtl/ascon_p.v
+../rtl/ascon_pad.v
+../rtl/ascon_aead128_core.v
+../rtl/ascon_aead128.v
+../rtl/axis_ascon_aead128.v

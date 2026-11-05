@@ -1,0 +1,15 @@
+# read design 
+read_verilog -sv rtl/ascon_core.sv
+
+# generic synthesis
+synth -top ascon_core
+
+# mapping to simple_cells.lib
+dfflibmap -liberty syn/simple_cells.lib
+abc -liberty syn/simple_cells.lib
+clean
+
+# write synthesized design
+write_verilog syn.v
+
+stat -liberty syn/simple_cells.lib

@@ -1,0 +1,24 @@
+[tasks]
+bmc
+cover
+
+[options]
+bmc: mode bmc
+cover: mode cover
+depth 15
+
+[engines]
+bmc: smtbmc
+cover: smtbmc
+
+[script]
+read_verilog ascon_round.v
+read_verilog ascon_p.v
+read_verilog -formal ascon_aead128_core.v
+
+prep -top ascon_aead128_core
+
+[files]
+../rtl/ascon_round.v
+../rtl/ascon_p.v
+../rtl/ascon_aead128_core.v

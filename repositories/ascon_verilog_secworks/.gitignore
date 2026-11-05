@@ -1,0 +1,11 @@
+test*
+*.sim
+*.vcd
+*.log
+
+/toolruns/quartus
+/toolruns/ise/
+/toolruns/vivado
+/toolruns/modelsim
+/toolruns/libero
+/toolruns/icestorm
